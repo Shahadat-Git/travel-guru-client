@@ -46,7 +46,7 @@ const Slider = () => {
                 <div className='w-5/12 mt-5'>
                     <h1 className='text-7xl font-bold uppercase'>{currentLocation?.name}</h1>
                     <p className='my-5'>{currentLocation?.description.slice(0, 200)}....</p>
-                    <Link className='btn btn-warning gap-2'>Booking  <FaArrowRight></FaArrowRight></Link>
+                    <Link to={`/booking/${currentLocation?.id}`} className='btn btn-warning gap-2'>Booking  <FaArrowRight></FaArrowRight></Link>
                 </div>
                 <div className='ml-auto w-3/6'>
                     <Swiper
