@@ -7,7 +7,7 @@ const DataProvider = ({ children }) => {
     useEffect(() => {
         const dataLoad = async () => {
 
-            const res = await fetch(`http://localhost:5000/locations`)
+            const res = await fetch(`https://travel-guru-server-lilac-chi.vercel.app/locations`)
             const locations = await res.json()
             // console.log(locations)
             setLocations(locations)

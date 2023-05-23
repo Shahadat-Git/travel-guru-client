@@ -42,13 +42,13 @@ const Slider = () => {
 
     return (
         <>
-            <div className='flex'>
-                <div className='w-5/12 mt-5'>
-                    <h1 className='text-7xl font-bold uppercase'>{currentLocation?.name}</h1>
+            <div className='flex flex-col-reverse md:flex-row'>
+                <div className='md:w-5/12 mt-5'>
+                    <h1 className='text-4xl lg:text-7xl font-bold uppercase'>{currentLocation?.name}</h1>
                     <p className='my-5'>{currentLocation?.description.slice(0, 200)}....</p>
                     <Link to={`/booking/${currentLocation?.id}`} className='btn btn-warning gap-2'>Booking  <FaArrowRight></FaArrowRight></Link>
                 </div>
-                <div className='ml-auto w-3/6'>
+                <div className='md:ml-auto md:w-3/6'>
                     <Swiper
                         // install Swiper modules
                         modules={[Navigation, Autoplay, Pagination, A11y]}
@@ -58,7 +58,7 @@ const Slider = () => {
                             nextEl: nextRef.current,
                         }}
                         grabCursor={true}
-                        centeredSlides={true}
+                        // centeredSlides={true}
                         autoplay={{
                             delay: 3000,
                             disableOnInteraction: true,
@@ -76,8 +76,8 @@ const Slider = () => {
                                     <div style={{
                                         background: `linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)), url(${location.img})`, backgroundRepeat: 'no-repeat', backgroundSize: 'contain, cover',
                                         backgroundPosition: 'center'
-                                    }} className={isActive ? 'border-4 border-[#FBBC04] h-[416px] w-[270px]  rounded-3xl' : 'h-[416px] w-[270px]  rounded-3xl'}>
-                                        <h3 className='text-3xl font-bold uppercase absolute bottom-6 left-4'>{location.name}</h3>
+                                    }} className={isActive ? 'border-4 border-[#FBBC04] h-[216px] lg:h-[416px] w-[130px] lg:w-[270px]  rounded-3xl' : 'h-[216px] lg:h-[416px] w-[130px] lg:w-[270px]  rounded-3xl'}>
+                                        <h3 className='text-base md:text-3xl font-bold uppercase absolute bottom-6 left-4'>{location.name}</h3>
                                     </div>
                                 )}
                             </SwiperSlide>)
@@ -89,8 +89,8 @@ const Slider = () => {
                                     <div style={{
                                         background: `linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)), url(${location.img})`, backgroundRepeat: 'no-repeat', backgroundSize: 'contain, cover',
                                         backgroundPosition: 'center'
-                                    }} className={isActive ? 'border-4 border-[#FBBC04] h-[416px] w-[270px]  rounded-3xl' : 'h-[416px] w-[270px]  rounded-3xl'}>
-                                        <h3 className='text-3xl font-bold uppercase absolute bottom-6 left-4'>{location.name}</h3>
+                                    }} className={isActive ? 'border-4 border-[#FBBC04] h-[216px] lg:h-[416px] w-[130px] lg:w-[270px]  rounded-3xl' : 'h-[216px] lg:h-[416px] w-[130px] lg:w-[270px]  rounded-3xl'}>
+                                        <h3 className='text-base md:text-3xl font-bold uppercase absolute bottom-6 left-4'>{location.name}</h3>
                                     </div>
                                 )}
                             </SwiperSlide>)

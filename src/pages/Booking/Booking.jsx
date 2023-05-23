@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { DataContext } from '../../providers/DataProvider';
 import { enGB } from 'date-fns/locale'
 import { DateRangePicker, START_DATE, END_DATE } from '@bjarkehs/react-nice-dates'
@@ -14,7 +14,11 @@ const Booking = () => {
 
     const currentLocation = locations?.find(location => location.id == id)
     // console.log(currentLocation)
-
+    const navigate = useNavigate();
+    const handleBooking = event => {
+        event.preventDefault();
+        navigate(`/hotel-booking/${currentLocation?.id}`)
+    }
 
     return (
         <div className='container mx-auto mt-20 flex'>
@@ -23,11 +27,11 @@ const Booking = () => {
                 <p className='my-5'>{currentLocation?.description}</p>
             </div>
             <div className='w-5/12 mt-5 ms-auto'>
-                <form className='border w-2/3 bg-white p-5 rounded-lg'>
+                <form onSubmit={handleBooking} className='border w-2/3 bg-white p-5 rounded-lg'>
                     <label className='text-gray-400'> Origin</label>
                     <input required className='block w-full bg-gray-100 placeholder-black h-12 pl-5 rounded focus:outline-none text-xl font-semibold' type="text" placeholder='From' />
                     <label className='text-gray-400 block mt-2'> Destination</label>
-                    <input required className='block w-full bg-gray-100 placeholder-black h-12 pl-5 rounded focus:outline-none text-xl font-semibold' type="text" value={currentLocation?.name} placeholder='To' />
+                    <input required className='block w-full bg-gray-100 placeholder-black h-12 pl-5 rounded focus:outline-none text-xl font-semibold' type="text" defaultValue={currentLocation?.name} placeholder='To' />
                     <DateRangePicker
                         startDate={startDate}
                         endDate={endDate}
@@ -60,7 +64,7 @@ const Booking = () => {
                             </div>
                         )}
                     </DateRangePicker>
-                    <button onClick={(e)=>e.preventDefault()}  className='btn btn-warning w-full mt-6'><Link to='/'>Start Booking</Link></button>
+                    <button className='btn btn-warning w-full mt-6'>Start Booking</button>
                 </form>
             </div>
         </div>
