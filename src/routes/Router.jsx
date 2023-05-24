@@ -6,6 +6,9 @@ import Main from '../layouts/Main';
 import Home from '../pages/Home/Home';
 import Booking from '../pages/Booking/Booking';
 import Hotels from '../pages/Hotels/Hotels';
+import Register from '../pages/Register/Register';
+import Login from '../pages/Login/Login';
+import PrivateRoute from './PrivateRoute';
 
 
 const router = createBrowserRouter([
@@ -25,8 +28,16 @@ const router = createBrowserRouter([
     },
     {
         path: '/hotel-booking/:id',
-        element: <Hotels></Hotels>,
+        element: <PrivateRoute><Hotels></Hotels></PrivateRoute>,
         loader: ({ params }) => fetch(`https://travel-guru-server-lilac-chi.vercel.app/hotel/${params.id}`)
+    },
+    {
+        path: '/register',
+        element: <Register></Register>
+    },
+    {
+        path: '/login',
+        element: <Login></Login>
     }
 ])
 

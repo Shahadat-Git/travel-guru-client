@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../assets/logo.png';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../providers/AuthProvider';
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                // console.log('Logout Successful')
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
     return (
         <div className='container mx-auto py-5'>
             <div className="navbar bg-transparent flex justify-between items-center">
@@ -18,7 +30,9 @@ const Header = () => {
                     <Link>Contact</Link>
                 </div>
                 <div>
-                    <button className='btn btn-warning'>Login</button>
+                    {
+                        user ? <> <p className='text-white mr-3'>{user.email}</p> <button onClick={handleLogOut} className='btn btn-error'>Log Out</button></> : <Link to='/login' className='btn btn-warning'>Login</Link>
+                    }
                 </div>
             </div>
         </div>

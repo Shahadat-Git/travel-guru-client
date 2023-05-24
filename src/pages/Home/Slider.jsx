@@ -39,13 +39,15 @@ const Slider = () => {
         setCurrentLocation(activeItem)
     }, [locations, slideIndex])
 
-
+    if (!locations) {
+        return <progress className="progress  progress-error w-full" ></progress>
+    }
     return (
         <>
             <div className='flex flex-col-reverse md:flex-row'>
                 <div className='md:w-5/12 mt-5'>
                     <h1 className='text-4xl lg:text-7xl font-bold uppercase'>{currentLocation?.name}</h1>
-                    <p className='my-5'>{currentLocation?.description.slice(0, 200)}....</p>
+                    <p className='my-5'>{currentLocation?.description.slice(0, 200)} ....</p>
                     <Link to={`/booking/${currentLocation?.id}`} className='btn btn-warning gap-2'>Booking  <FaArrowRight></FaArrowRight></Link>
                 </div>
                 <div className='md:ml-auto md:w-3/6'>
@@ -95,6 +97,7 @@ const Slider = () => {
                                 )}
                             </SwiperSlide>)
                         }
+
                     </Swiper >
                 </div>
             </div >
