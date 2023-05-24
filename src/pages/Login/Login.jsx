@@ -83,7 +83,7 @@ const Login = () => {
 
                         <Link className='text-warning underline block text-right my-4'>Forgot Password</Link>
 
-                        <button className='btn btn-warning w-full hover:bg-yellow-500'>Create an Account</button>
+                        <button className='btn btn-warning w-full hover:bg-yellow-500'>Login</button>
                     </form>
                     <p className='text-center my-4'>Don't have an account? <Link state={location.state ? {
                         from: location.state?.from
