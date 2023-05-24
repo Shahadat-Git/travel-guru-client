@@ -21,13 +21,13 @@ const Booking = () => {
     }
 
     return (
-        <div className='container mx-auto mt-20 flex'>
-            <div className='w-5/12 mt-5 text-white'>
-                <h1 className='text-7xl font-bold uppercase'>{currentLocation?.name}</h1>
+        <div className='container mx-auto mt-20 lg:flex'>
+            <div className='text-center lg:text-left lg:w-5/12 mt-5 text-white'>
+                <h1 className='text-5xl lg:text-7xl font-bold uppercase'>{currentLocation?.name}</h1>
                 <p className='my-5'>{currentLocation?.description}</p>
             </div>
-            <div className='w-5/12 mt-5 ms-auto'>
-                <form onSubmit={handleBooking} className='border w-2/3 bg-white p-5 rounded-lg'>
+            <div className=' lg:w-5/12  mt-5 lg:ms-auto flex justify-center lg:block'>
+                <form onSubmit={handleBooking} className='border lg:w-2/3 bg-white p-5 rounded-lg'>
                     <label className='text-gray-400'> Origin</label>
                     <input required className='block w-full bg-gray-100 placeholder-black h-12 pl-5 rounded focus:outline-none text-xl font-semibold' type="text" placeholder='From' />
                     <label className='text-gray-400 block mt-2'> Destination</label>

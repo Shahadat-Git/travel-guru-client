@@ -28,7 +28,7 @@ const Header1 = () => {
                     <Link className='font-semibold'>Contact</Link>
                 </div>
                 {
-                    user ? <div> <p className='text-black mr-3'>{user.email}</p> <button onClick={handleLogOut} className='btn btn-error'>Log Out</button></div> : <Link to='/login' className='btn btn-warning'>Login</Link>
+                    user ? <div> <p className='text-black mr-3'>{user.email}</p> <button onClick={handleLogOut} className='btn btn-sm btn-error'>Log Out</button></div> : <Link to='/login' className='btn btn-warning'>Login</Link>
                 }
             </div>
         </div>

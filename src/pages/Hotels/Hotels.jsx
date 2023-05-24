@@ -29,8 +29,8 @@ const Hotels = () => {
             <hr className='mb-5' />
             <div>
                 <p className='text-gray-400'>252 stays Apr 13-17 3 guests</p>
-                <div className='flex'>
-                    <div className='w-5/12'>
+                <div className='lg:flex p-1'>
+                    <div className='lg:w-5/12'>
                         <h3 className='text-2xl font-bold'>Stay in {currentLocation?.name}</h3>
                         {
                             hotels.map((hotel, idx) => <HotelCard
@@ -39,13 +39,13 @@ const Hotels = () => {
                             ></HotelCard>)
                         }
                     </div>
-                    <div className='w-6/12 ml-auto'>
+                    <div className='lg:w-6/12 w-full lg:ml-auto px-1 rounded'>
                         <Map provider={mapTiler}
                             dprs={[1, 2]} // add this to support hidpi/retina (2x) maps if your provider supports them
                             height={700}
 
                             defaultCenter={[23.7766, 90.3877]}
-                            width={500} defaultZoom={11}>
+                            defaultZoom={11}>
                             <ZoomControl />
                         </Map>
                     </div>

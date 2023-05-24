@@ -31,7 +31,7 @@ const Header = () => {
                 </div>
                 <div>
                     {
-                        user ? <> <p className='text-white mr-3'>{user.email}</p> <button onClick={handleLogOut} className='btn btn-error'>Log Out</button></> : <Link to='/login' className='btn btn-warning'>Login</Link>
+                        user ? <> <p className='text-white mr-3'>{user.email}</p> <button onClick={handleLogOut} className='btn btn-sm btn-error'>Log Out</button></> : <Link to='/login' className='btn btn-warning'>Login</Link>
                     }
                 </div>
             </div>
